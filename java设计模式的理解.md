@@ -10,4 +10,4 @@
 
 其实还有两类：并发型模式和线程池模式。
 
-![](https://github.com/zhtoo/Interview/tree/master/picture)
+ ![](https://github.com/zhtoo/Interview/blob/master/picture/java23.jpg)

@@ -1,5 +1,7 @@
 ## App的所需能力
 
+ ![](https://github.com/zhtoo/Interview/blob/master/picture/浅谈App框架搭建01.jpg)
+
 ### 1、UI层次（延缓）
 
 ### 2、App联网

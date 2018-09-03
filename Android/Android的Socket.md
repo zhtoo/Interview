@@ -21,9 +21,9 @@ Socket是一种抽象层，应用程序通过它来发送和接收数据，使�
 ### 二、Socket 基本通信模型
 ![](https://github.com/zhtoo/Interview/blob/master/picture/socket/socket1.png) 
 #### 2.1、TCP通讯模型
- ![](https://github.com/zhtoo/Interview/blob/master/picture/socket/socket2.png) 
+ ![](https://github.com/zhtoo/Interview/blob/master/picture/socket/socket2.jpg) 
 #### 2.2、UDP通讯模型
- ![](https://github.com/zhtoo/Interview/blob/master/picture/socket/socket3.png) 
+ ![](https://github.com/zhtoo/Interview/blob/master/picture/socket/socket3.jpg) 
 ### 三、Socket基本实现原理
 
 #### 3.1基于TCP协议的Socket

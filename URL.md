@@ -12,6 +12,7 @@
 
 * Android Api :[https://developer.android.google.cn/reference/packages](https://developer.android.google.cn/reference/packages)
 * Android开发者： [https://developer.android.google.cn](https://developer.android.google.cn)
+* Android各版本新特性： [https://developer.android.google.cn/about/versions/pie/](https://developer.android.google.cn/about/versions/pie/)
 
 
 ## 博客收集

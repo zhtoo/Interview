@@ -15,13 +15,16 @@
 
 ### 2. step into(F7)：执行方法里面的代码 
 ![](https://github.com/zhtoo/Interview/blob/master/AndroidStudio/picture/debug_12.png)
+
 点击调试按钮或按快捷键F7，如果某行执行的代码是某一个方法，点击此按钮就是进入方法里面，执行该方法里面的代码。
 ### 3. force step into (alt+shift+F7):执行所有过程的代码
 ![](https://github.com/zhtoo/Interview/blob/master/AndroidStudio/picture/debug_23.png)
+
 点击调试按钮或按快捷键alt+shift+F7，将会执行调用方法的具体实现代码，也是是程序执行的所有过程，这个用来研究源码使用非常方便。
 
 ### 4. step out(shift+F8) ：如果有下一个断点，执行下一个断点，然后继续执行
 ![](https://github.com/zhtoo/Interview/blob/master/AndroidStudio/picture/debug_14.png)
+
 点击调试按钮或按快捷键shift+F8。如果我们的一个流程当中，包括调用的方法中，如果有断点，走到下一个断点，如果没有断点，而是在一个调用的方法当中，会跳出这个方法，继续走。
 
 ### 5. run to Cursor (alt+F9)：下个断点我们见
@@ -48,6 +51,7 @@
 
 ### 4.查看断点
 ![](https://github.com/zhtoo/Interview/blob/master/AndroidStudio/picture/debug_24.png)
+
 点击之后我们可以看到所有的断点，以及位置代码,也可以设置一些属性
 
 ### 5.停止调试
@@ -63,6 +67,7 @@
 ### 1、先设置断点，再正常运行APK 
 ### 2、点击Attach调试
 ![](https://github.com/zhtoo/Interview/blob/master/AndroidStudio/picture/debug_32.png)
+
 或者像下面一样打开也是可以的
 
 即运行Run->Attach debugger to Android process 

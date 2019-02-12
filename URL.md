@@ -2,11 +2,11 @@
 
 ## 软件下载地址
 
-* java SDK ：[http://www.oracle.com/technetwork/java/javase/downloads/index.html](http://www.oracle.com/technetwork/java/javase/downloads/index.html "http://www.oracle.com/technetwork/java/javase/downloads/index.html")
-* android Studio ：[https://developer.android.google.cn/studio/index.html#downloads](https://developer.android.google.cn/studio/index.html#downloads "https://developer.android.google.cn/studio/index.html#downloads")
+* java SDK ：[http://www.oracle.com/technetwork/java/javase/downloads/index.html](http://www.oracle.com/technetwork/java/javase/downloads/index.html )
+* android Studio ：[https://developer.android.google.cn/studio/index.html#downloads](https://developer.android.google.cn/studio/index.html#downloads)
+* android Studio ：[https://developer.android.google.cn/studio/archive](https://developer.android.google.cn/studio/archive)
 * github（桌面本）：[https://desktop.github.com/](https://desktop.github.com/ "https://desktop.github.com/")
-* HiJson :[https://code.google.com/archive/p/json-view/downloads](https://code.google.com/archive/p/json-view/downloads "https://code.google.com/archive/p/json-view/downloads")
-
+* HiJson :[https://code.google.com/archive/p/json-view/downloads](https://code.google.com/archive/p/json-view/downloads )
 
 ## 常用地址
 
@@ -17,8 +17,8 @@
 
 ## 博客收集
 
-* [仿QQ好友列表，可悬停](http://blog.csdn.net/shichaosong/article/details/26246655 "仿QQ好友列表，可悬停")
-* [HashMap 和 SparseArray比较](http://blog.csdn.net/sd19871122/article/details/49679435 "HashMap 和 SparseArray比较")
+* [仿QQ好友列表，可悬停](http://blog.csdn.net/shichaosong/article/details/26246655)
+* [HashMap 和 SparseArray比较](http://blog.csdn.net/sd19871122/article/details/49679435)
 
 
 

@@ -139,5 +139,91 @@ VideoView是Android提供播放视频的一个控件，继承于SurfaceView，�
 这里做的其实就是尺寸自适应，保证视频按照原先宽高比播放。（源码就不分析了，对自定义控件不熟悉的童鞋可以看看别人的实现思路。）
 
 
+#### setVideoURI
 
+ 	public void setVideoURI(Uri uri, Map<String, String> headers) {
+        mUri = uri;
+        mHeaders = headers;
+        mSeekWhenPrepared = 0;//当准备完成时，跳转到视频的某个时刻
+		//重点看这个方法
+        openVideo();
+		//当某些内容发生变化而导致此视图的布局无效时，请调用此方法。 这将安排视图树的布局传递。 当视图层次结构当前处于布局传递中时，不应调用此方法（{@link #isInLayout（）}。如果发生布局，则可以在当前布局传递结束时接受请求（然后布局将再次运行） ）或在绘制当前帧并发生下一个布局之后。
+        requestLayout();
+		//重绘
+        invalidate();
+    }
 
+####  openVideo
+ 	private void openVideo() {
+        if (mUri == null || mSurfaceHolder == null) {
+           //非空判断
+            return;
+        }
+   		//释放mMediaPlayer，但是不清除视频播放的状态
+        release(false);
+
+        if (mAudioFocusType != AudioManager.AUDIOFOCUS_NONE) {
+            //请求获取自动获取焦点
+            mAudioManager.requestAudioFocus(null, mAudioAttributes, mAudioFocusType, 0);
+        }
+
+        try {
+			//初始化MediaPlayer
+            mMediaPlayer = new MediaPlayer();
+         
+            final Context context = getContext();
+            final SubtitleController controller = new SubtitleController(
+                    context, mMediaPlayer.getMediaTimeProvider(), mMediaPlayer);
+            controller.registerRenderer(new WebVttRenderer(context));
+            controller.registerRenderer(new TtmlRenderer(context));
+            controller.registerRenderer(new Cea708CaptionRenderer(context));
+            controller.registerRenderer(new ClosedCaptionRenderer(context));
+            mMediaPlayer.setSubtitleAnchor(controller, this);
+
+            if (mAudioSession != 0) {
+                mMediaPlayer.setAudioSessionId(mAudioSession);
+            } else {
+                mAudioSession = mMediaPlayer.getAudioSessionId();
+            }
+            mMediaPlayer.setOnPreparedListener(mPreparedListener);
+            mMediaPlayer.setOnVideoSizeChangedListener(mSizeChangedListener);
+            mMediaPlayer.setOnCompletionListener(mCompletionListener);
+            mMediaPlayer.setOnErrorListener(mErrorListener);
+            mMediaPlayer.setOnInfoListener(mInfoListener);
+            mMediaPlayer.setOnBufferingUpdateListener(mBufferingUpdateListener);
+            mCurrentBufferPercentage = 0;
+            mMediaPlayer.setDataSource(mContext, mUri, mHeaders);
+            mMediaPlayer.setDisplay(mSurfaceHolder);
+            mMediaPlayer.setAudioAttributes(mAudioAttributes);
+            mMediaPlayer.setScreenOnWhilePlaying(true);
+            mMediaPlayer.prepareAsync();
+
+            for (Pair<InputStream, MediaFormat> pending: mPendingSubtitleTracks) {
+                try {
+                    mMediaPlayer.addSubtitleSource(pending.first, pending.second);
+                } catch (IllegalStateException e) {
+                    mInfoListener.onInfo(
+                            mMediaPlayer, MediaPlayer.MEDIA_INFO_UNSUPPORTED_SUBTITLE, 0);
+                }
+            }
+
+            // we don't set the target state here either, but preserve the
+            // target state that was there before.
+            mCurrentState = STATE_PREPARING;
+            attachMediaController();
+        } catch (IOException ex) {
+            Log.w(TAG, "Unable to open content: " + mUri, ex);
+            mCurrentState = STATE_ERROR;
+            mTargetState = STATE_ERROR;
+            mErrorListener.onError(mMediaPlayer, MediaPlayer.MEDIA_ERROR_UNKNOWN, 0);
+            return;
+        } catch (IllegalArgumentException ex) {
+            Log.w(TAG, "Unable to open content: " + mUri, ex);
+            mCurrentState = STATE_ERROR;
+            mTargetState = STATE_ERROR;
+            mErrorListener.onError(mMediaPlayer, MediaPlayer.MEDIA_ERROR_UNKNOWN, 0);
+            return;
+        } finally {
+            mPendingSubtitleTracks.clear();
+        }
+    }

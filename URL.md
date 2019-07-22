@@ -13,7 +13,9 @@
 * Android Api :[https://developer.android.google.cn/reference/packages](https://developer.android.google.cn/reference/packages)
 * Android开发者： [https://developer.android.google.cn](https://developer.android.google.cn)
 * Android各版本新特性： [https://developer.android.google.cn/about/versions/pie/](https://developer.android.google.cn/about/versions/pie/)
+* Android appcompat-v7版本：[https://mvnrepository.com/artifact/com.android.support/appcompat-v7?repo=google](https://mvnrepository.com/artifact/com.android.support/appcompat-v7?repo=google)
 
+问题答疑：[https://stackoverflow.com](https://stackoverflow.com)
 
 ## 博客收集
 

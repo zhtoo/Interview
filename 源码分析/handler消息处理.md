@@ -191,7 +191,7 @@ Q&A
 	public static void main(String argv[]) {
 		//创建一个ZygoteServer服务
         ZygoteServer zygoteServer = new ZygoteServer();
-		//标记Zygote开始。这样可以确保线程创建将引发错误。
+		//标记Zygote开始。这样可以确保线程创建而引发错误。
 		//确保在启动Zygote时，没有线程被创建。
         ZygoteHooks.startZygoteNoThreadCreation();
 
